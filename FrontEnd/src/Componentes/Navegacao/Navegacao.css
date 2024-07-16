@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+.navbar {
+  font-family:"kalam" , cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #01253d;
+  padding: 10px 20px;
+  font-size: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 50px;
+ 
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ 
+}
+
+.nav-item button{
+  border-radius: 0;
+  color: #000000;
+  background-color: rgb(87, 137, 245);
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.nav-item button:hover{
+  color: #ffffff;
+  background-color: rgb(245, 87, 87);
+ 
+}
+
+
+.nav-item a {
+  position: relative; /* Adiciona posicionamento relativo para usar em pseudo-elemento */
+  color: #fff;
+  text-decoration: none;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-item a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Ajusta a posição do sublinhado */
+  left: 0;
+  width: 0; /* Inicialmente definido como 0 para não aparecer */
+  height: 2px;
+  background-color: #4da6ff; /* Cor do sublinhado */
+  transition: width 0.3s ease; /* Adiciona transição para a largura */
+}
+
+.nav-item a:hover::before {
+  width: 100%; /* Aumenta a largura do sublinhado para 100% */
+}
+
+

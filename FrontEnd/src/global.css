@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;}
+  
+body {
+  
+    background-color:#f4f5fa;
+  }
+  
+  .titulo-principal {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }

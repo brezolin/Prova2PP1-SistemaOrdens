@@ -1,0 +1,16 @@
+
+
+  .error404{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .label404{
+    font-size: 150px;
+    font-weight: bold;
+    font-family:  monospace;
+  }
+
+  

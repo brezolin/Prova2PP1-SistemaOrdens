@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+.lista-de-ordem {
+  font-family:"kalam" , cursive;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.lista-de-ordem h2 {
+  font-size: 24px;
+  margin-bottom: 20 px;
+  color: blue;
+  text-align: center;
+}
+
+.loading {
+  font-size: 18px;
+  color: #333;
+}
+
+.li_Lista {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+  list-style:none;
+  display:flex ;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.li_Lista:hover {
+  transform: translateY(-5px);
+  background-color: #f3f2f2;
+  
+}
+
+.li_Lista a {
+  color:black;
+  font-family:"kalam" , cursive;}
+
+.titulo-ordem {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.status span {
+  color: #666; 
+}
+
+.status span.finalizado {
+  color: #28a745; 
+}
+
+.status span.em-aberto {
+  color: #dc3545; 
+}
+
+#btndelete,#btnalterar{
+  border-radius: 10px;
+  
+}
+
+#btndelete:hover,#btnalterar:hover{
+  border-radius: 10px;
+  text-decoration: underline;
+  
+}

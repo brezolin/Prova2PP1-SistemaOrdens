@@ -1,0 +1,39 @@
+
+.DescricaoOrdem{
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  font-family:"kalam" , cursive;
+  margin: auto;
+  padding: 20px;
+}
+
+
+.DescricaoOrdem h2 {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.DescricaoOrdem h3 {
+  font-size: 22px;
+  color: #0c0c0c;
+  margin: 10px 0;
+}
+
+.DescricaoOrdem {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+
+.DescricaoOrdem p{
+  content: "N/A";
+  color: #070707;
+}
+
+#btndelete{
+  background-color: crimson;
+}
