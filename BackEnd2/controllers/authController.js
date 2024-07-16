@@ -1,47 +1,35 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { User } = require('../models'); // Certifique-se de que este arquivo existe
+const { User } = require('../models'); // Certifique-se de que este arquivo existe e está correto
 const router = require('express').Router();
 
 // Registro
 router.post('/register', async (req, res) => {
   try {
     const { username, password } = req.body;
+
+    // Verificação de entrada
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Nome de usuário e senha são obrigatórios' });
+    }
+
+    // Verifica se o usuário já existe
     const existingUser = await User.findOne({ where: { username } });
-
     if (existingUser) {
-      return res.status(400).json({ error: 'Usuário já existe' });
+      return res.status(400).json({ error: 'Nome de usuário já existe' });
     }
 
+    // Criptografa a senha
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ username, password: hashedPassword });
-    res.status(201).json(newUser);
+
+    // Cria o novo usuário
+    const user = await User.create({ username, password: hashedPassword });
+
+    // Retorna o usuário criado
+    res.status(201).json(user);
   } catch (error) {
-    console.error('Erro ao registrar usuário:', error);
-    res.status(500).json({ error: 'Erro interno ao registrar usuário' });
-  }
-});
-
-// Login
-router.post('/login', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ where: { username } });
-
-    if (!user) {
-      return res.status(400).json({ error: 'Usuário não encontrado' });
-    }
-
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(400).json({ error: 'Senha inválida' });
-    }
-
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
-  } catch (error) {
-    console.error('Erro ao fazer login:', error);
-    res.status(500).json({ error: 'Erro interno ao fazer login' });
+    console.error('Erro no registro:', error);
+    res.status(500).json({ error: 'Erro ao registrar usuário' });
   }
 });
 
