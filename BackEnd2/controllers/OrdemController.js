@@ -1,4 +1,4 @@
-const Order = require('../models/OrderRoutes');
+const Order = require('../models/order');
 
 const OrdemController = {
     getAllOrdens: async (req, res) => {

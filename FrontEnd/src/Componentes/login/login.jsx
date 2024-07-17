@@ -17,7 +17,8 @@ const Login = () => {
         password,
       });
       localStorage.setItem('token', response.data.token);
-      // Aqui você pode verificar se o usuário precisa ser redirecionado para a página de cadastro
+      setError(null); // Limpa o estado de erro após login bem-sucedido
+      // Verifica se o usuário precisa ser redirecionado para a página de cadastro
       if (response.data.requiresRegistration) {
         navigate('/register'); // Redireciona para a página de cadastro
       } else {

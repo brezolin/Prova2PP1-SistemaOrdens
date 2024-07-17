@@ -54,6 +54,10 @@ function AlterarOrdem() {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
+      if (!values.dataFechamento) {
+        delete values.dataFechamento;
+      }
+      
       const response = await axios.put(`http://localhost:3001/api/ordem/${id}`, values);
       toast.success('Ordem alterada com sucesso', {
         position: 'top-right',

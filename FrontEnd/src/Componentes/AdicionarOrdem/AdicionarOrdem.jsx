@@ -16,25 +16,29 @@ function AdicionarOrdem() {
     status: 'Em aberto',
     tecnicoResponsavel: '',
     descricaoDoServico: '',
-    dataFechamento: '',
-    ValorTotal: "0.00"
+    dataFechamento: '', 
+    valorTotal: '0.00'
   };
 
   const validationSchema = Yup.object().shape({
     cliente: Yup.string().required('O nome do Cliente é obrigatório'),
-    contato: Yup.string().matches(/^(\(\d{3}\)\s*\d{9})$/, 'O formato do contato deve ser "(DDD)XXXXXXXXX"'),
-    descricaoDoProblema: Yup.string(),
+    contato: Yup.string().matches(/^\(\d{3}\)\s*\d{9}$/, 'O formato do contato deve ser "(DDD)XXXXXXXXX"'),
+    descricaoDoProblema: Yup.string().required('A descrição do problema é obrigatória'),
     dataAbertura: Yup.date().required('A data de abertura é obrigatória'),
-    status: Yup.string().oneOf(['Em aberto', 'Finalizado'], 'O status deve ser "Em aberto" ou "Finalizado"'),
     tecnicoResponsavel: Yup.string(),
     descricaoDoServico: Yup.string(),
-    dataFechamento: Yup.date(),
-    ValorTotal: Yup.number()
+    dataFechamento: Yup.date().nullable(true), 
+    valorTotal: Yup.number()
       .typeError('O valor deve ser um número')
-      .positive('O valor deve ser positivo'),
+      .positive('O valor deve ser positivo')
   });
 
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
+    
+    if (!values.dataFechamento) {
+      delete values.dataFechamento;
+    }
+
     axios
       .post('http://localhost:3001/api/ordem', values)
       .then((response) => {
@@ -88,7 +92,7 @@ function AdicionarOrdem() {
                 {({ field }) => (
                   <InputMask 
                     {...field}
-                    mask="(099)999999999"
+                    mask="(999) 999999999"
                     placeholder="(DDD) 12345-6789"
                     className="form-control"
                   />
@@ -128,9 +132,9 @@ function AdicionarOrdem() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="ValorTotal">Valor Total:</label>
-              <Field type="number" id="ValorTotal" name="ValorTotal" className="form-control" />
-              <ErrorMessage name="ValorTotal" component="div" className="text-danger" />
+              <label htmlFor="valorTotal">Valor Total:</label>
+              <Field type="number" id="valorTotal" name="valorTotal" className="form-control" />
+              <ErrorMessage name="valorTotal" component="div" className="text-danger" />
             </div>
 
             <div className="form-group">
