@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ListaDeOrdens.css';
+import './ListadeOrdens.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,6 +14,7 @@ function ListaDeOrdens() {
     axios.get('http://localhost:3001/api/ordem')
       .then((response) => {
         const data = response.data;
+        // Ordenando as ordens por data de abertura (da mais antiga para a mais recente)
         data.sort((a, b) => new Date(a.dataAbertura) - new Date(b.dataAbertura));
         setOrdens(data);
       })
