@@ -13,26 +13,23 @@ function ExcluirOrdem() {
       toast.error('Por favor, insira o ID da ordem de serviço.');
       return;
     }
-
     setShowConfirmModal(true);
   };
 
-  const handleConfirmExclusao = () => {
-    axios
-      .delete(`http://localhost:3001/api/ordem/${ordemId}`)
-      .then((response) => {
-        if (response.status === 200) {
-          toast.success('Ordem de serviço excluída com sucesso');
-          setOrdemId('');
-          setShowConfirmModal(false);
-        } else {
-          toast.error('Erro ao excluir a ordem de serviço');
-        }
-      })
-      .catch((error) => {
-        toast.error('Erro na solicitação');
-        console.error('Erro na solicitação:', error);
-      });
+  const handleConfirmExclusao = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:3001/api/ordem/${ordemId}`);
+      if (response.status === 200) {
+        toast.success('Ordem de serviço excluída com sucesso');
+        setOrdemId('');
+      } else {
+        toast.error('Erro ao excluir a ordem de serviço');
+      }
+    } catch (error) {
+      toast.error('Erro na solicitação');
+      console.error('Erro na solicitação:', error);
+    }
+    setShowConfirmModal(false);
   };
 
   const handleCloseModal = () => {

@@ -6,6 +6,7 @@
     border-radius: 5px;
     background-color: #f9f9f9;
     text-align: center;
+    transform: translateY(+60%)
   }
   
   .register-container h2 {

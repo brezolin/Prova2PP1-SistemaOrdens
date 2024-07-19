@@ -27,12 +27,12 @@ h2 {
     flex-direction: column;
     margin-bottom: 15px;
   }
-/* AdicionarOrdem.css */
+
 
 .inputMaskContato {
   margin-bottom: 15px;
   width: 100%;
-  height: 40px; /* Exemplo de altura ajustada */
+  height: 40px; 
 }
 
   
@@ -61,7 +61,7 @@ textarea {
   height: 100px;
 }
 
-/* Ajustes específicos para o campo de contato */
+
 .campoContato {
   width: 100%;
   margin-bottom: 20px;

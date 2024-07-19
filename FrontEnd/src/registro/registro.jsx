@@ -12,7 +12,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:3001/api/register', { username, password });
-      navigate('/login'); // Navega para a rota '/login' após o registro
+      navigate('/login'); 
     } catch (error) {
       console.error('Erro no registro', error);
     }

@@ -42,7 +42,7 @@ const OrdemController = {
             const { id } = req.params;
             const { ValorTotal, ...rest } = req.body;
     
-            // Verificar e ajustar ValorTotal se necessário
+            
             const valorTotal = typeof ValorTotal === 'string' ? parseFloat(ValorTotal) : ValorTotal;
     
             const [updated] = await Order.update({ ...rest, ValorTotal: valorTotal }, {

@@ -1,4 +1,4 @@
-// middleware/auth.js
+
 const jwt = require('jsonwebtoken');
 
 function authMiddleware(req, res, next) {
@@ -14,8 +14,8 @@ function authMiddleware(req, res, next) {
     if (err) {
       return res.status(403).json({ error: 'Falha na autenticação do token' });
     }
-    req.user = decoded; // Decodifica e adiciona o payload do token à requisição
-    next(); // Continua para a próxima middleware ou rota
+    req.user = decoded; 
+    next(); 
   });
 }
 

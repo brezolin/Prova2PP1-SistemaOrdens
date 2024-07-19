@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './AlterarOrdem.css'; // Remova isso se não for mais necessário
+import './AlterarOrdem.css'; 
 import axios from 'axios';
 import InputMask from 'react-input-mask';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -19,11 +19,11 @@ function AlterarOrdem() {
         const response = await axios.get(`http://localhost:3001/api/ordem/${id}`);
         const { dataAbertura, dataFechamento, ...rest } = response.data;
   
-        // Convertendo as datas para o formato correto
+        
         const initialValues = {
           ...rest,
-          dataAbertura: dataAbertura ? dataAbertura.slice(0, 16) : '', // Remova os segundos e o Z da data
-          dataFechamento: dataFechamento ? dataFechamento.slice(0, 16) : '', // Remova os segundos e o Z da data
+          dataAbertura: dataAbertura ? dataAbertura.slice(0, 16) : '', 
+          dataFechamento: dataFechamento ? dataFechamento.slice(0, 16) : '', 
         };
   
         setInitialValues(initialValues);
@@ -64,7 +64,7 @@ function AlterarOrdem() {
         autoClose: 1500,
       });
       setTimeout(() => {
-        window.location.href = '/Listadeordens'; // Redireciona para a lista de ordens após o sucesso
+        window.location.href = '/Listadeordens'; 
       }, 1000);
     } catch (error) {
       console.error('Erro ao alterar a ordem:', error);

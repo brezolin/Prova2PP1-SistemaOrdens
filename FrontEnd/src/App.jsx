@@ -5,14 +5,14 @@ import NoMatch from './Componentes/NoMatch/NoMatch';
 import Login from './Componentes/Login/Login';
 import Register from './registro/registro';
 import Home from './Componentes/Home/Home';
-import ListaDeOrdens from './Componentes/ListaDeOrdens/ListaDeOrdens';
+import ListaDeOrdens from './Componentes/ListaDeOrdens/ListadeOrdens';
 import DescricaoOrdem from './Componentes/DescricaoDasOrdem/DescricaoOrdem';
 import AdicionarOrdem from './Componentes/AdicionarOrdem/AdicionarOrdem';
 import ExcluirOrdem from './Componentes/ExcluirOrdem/ExcluirOrdem';
 import AlterarOrdem from './Componentes/AlterarOrdem/AlterarOrdem';
 
 const PrivateRoute = ({ element: Element, ...rest }) => {
-  const isAuthenticated = !!localStorage.getItem('token'); // Verifica a autenticação conforme necessário
+  const isAuthenticated = !!localStorage.getItem('token'); 
 
   return isAuthenticated ? (
     <Element {...rest} />

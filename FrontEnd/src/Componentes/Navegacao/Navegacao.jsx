@@ -16,7 +16,7 @@ const Navegacao = () => {
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul className="navbar-nav">
                     <li className="nav-item">
-                    <Link to="/home" className="navbar-brand text-dark">Home</Link>
+                    <Link to="/home" className="nav-link text-dark">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/listadeordens" className="nav-link text-dark">Ordens</Link>

@@ -14,7 +14,7 @@ function ListaDeOrdens() {
     axios.get('http://localhost:3001/api/ordem')
       .then((response) => {
         const data = response.data;
-        // Ordenando as ordens por data de abertura (da mais antiga para a mais recente)
+        // Ordena as ordens
         data.sort((a, b) => new Date(a.dataAbertura) - new Date(b.dataAbertura));
         setOrdens(data);
       })

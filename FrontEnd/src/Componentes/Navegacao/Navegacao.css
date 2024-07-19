@@ -38,7 +38,7 @@
 
 
 .nav-item a {
-  position: relative; /* Adiciona posicionamento relativo para usar em pseudo-elemento */
+  position: relative; 
   color: #fff;
   text-decoration: none;
   margin-top: 5px;
@@ -48,16 +48,16 @@
 .nav-item a::before {
   content: '';
   position: absolute;
-  bottom: -2px; /* Ajusta a posição do sublinhado */
+  bottom: -2px; 
   left: 0;
-  width: 0; /* Inicialmente definido como 0 para não aparecer */
+  width: 0; 
   height: 2px;
-  background-color: #4da6ff; /* Cor do sublinhado */
-  transition: width 0.3s ease; /* Adiciona transição para a largura */
+  background-color: #4da6ff; 
+  transition: width 0.3s ease; 
 }
 
 .nav-item a:hover::before {
-  width: 100%; /* Aumenta a largura do sublinhado para 100% */
+  width: 100%; 
 }
 
 
